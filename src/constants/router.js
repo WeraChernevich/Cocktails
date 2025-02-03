@@ -1,5 +1,5 @@
 export const ROUTES_PATHS = {
-    HOME: '/',
-    COCKTAIL: '/cocktails/:rid',
-    COCKTAIL_RANDOM: '/random',
+    HOME: '/Cocktails/',
+    COCKTAIL: '/Cocktails/cocktails/:rid',
+    COCKTAIL_RANDOM: '/Cocktails/random',
 }
