@@ -13,7 +13,7 @@ const props = defineProps({
 
         </div>
         <div class="main">
-            <el-button class="btn">Get random cocktail</el-button>
+            <el-button class="btn">Приготовьте коктейль</el-button>
             <slot></slot>
         </div>
     </div>
@@ -43,6 +43,7 @@ const props = defineProps({
 
 .btn {
     position: absolute;
+    padding: 20px 30px;
     top: 32px;
     right: 40px;
     font-size: 16px;

@@ -213,6 +213,13 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
+.select .el-select__wrapper {
+  background-color: var(--color-bg);
+}
+.select .el-select__input {
+  color: var(--color-text);
+}
+
 body {
   font-size: 16px;
   line-height: 1.4;
