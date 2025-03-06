@@ -4,6 +4,7 @@
   --color-bg: #141414;
   --color-text: #FFFFFF;
   --color-text-muted: #D3D3D3;
+  --color-icon: (var(--color-text)) ;
 }
 
 /**
@@ -116,11 +117,6 @@ html {
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
   height: 100%;
-  /**
-    Убираем скачок интерфейса по горизонтали
-    при появлении / исчезновении скроллбара
-   */
-  scrollbar-gutter: stable;
 }
 
 /**
@@ -239,4 +235,55 @@ body {
   width: 100px;
   height: 3px;
   background-color: var(--color-accent);
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.list {
+  width: 560px;
+  padding: 50px 0 80px;
+  text-align: left;
+}
+.list-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+.list-item:last-child {
+  margin-bottom: 0;
+}
+.list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url("/src/assets/img/like.svg") no-repeat 50% 50%;
+}
+
+.instructions {
+  width: 516px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
 }/*# sourceMappingURL=main.css.map */

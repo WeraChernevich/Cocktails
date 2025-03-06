@@ -5,6 +5,7 @@ import { INGREDIENTS_URL, COCTAILS_BY_INGR_URL } from '../constants/api.js'
 export const useRootStore = defineStore('root', {
   state: () => ({
     ingredients: [],
+    ingredient: null,
     cocktails: [],
   }),
   actions: {
@@ -41,6 +42,9 @@ export const useRootStore = defineStore('root', {
           this.cocktails = []; 
         }
       }
+    },
+    setIngredient(val) {
+      this.ingredient = val;
     }
   }
 })
