@@ -1,12 +1,13 @@
 <script setup>
 import axios from 'axios';
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { COCTAIL_RANDOM, INGREDIENT_PIC } from '@/constants';
 import AppLayout from '@/components/AppLayout.vue';
 
 const cocktail = ref(null);
+const error = ref(null);
 
 const ingredients = computed(() => {
     const ingredients = [];
@@ -22,11 +23,25 @@ const ingredients = computed(() => {
 })
 
 async function getCocktail() {
-    const data = await axios.get(COCTAIL_RANDOM);
-    cocktail.value = data?.data?.drinks[0];
+    try {
+    const response = await axios.get(COCTAIL_RANDOM);
+    if (response.status === 200) {
+      cocktail.value = response.data.drinks[0];
+      error.value = null; // Сбрасываем ошибку, если загрузка прошла успешно
+    } else {
+      error.value = `Failed to load cocktail. Status code: ${response.status}`;
+      cocktail.value = null;
+    }
+  } catch (e) {
+    console.error("Error fetching cocktail:", e);
+    error.value = "Failed to load cocktail. Please check your internet connection and try again.";
+    cocktail.value = null;
+  }
 }
 
-getCocktail();
+onMounted(() => {
+  getCocktail(); 
+});
 
 </script>
 

@@ -12,9 +12,9 @@ const props = defineProps({
 <template>
     <div class="root">
         <RouterLink :to="`/cocktails/${cocktail.idDrink}`">
-        <div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="pic"></div>
+            <div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="pic"></div>
         </RouterLink>
-        <div class="name">{{ cocktail.strDrink }}</div>
+        <div class="name" :title="cocktail.strDrink">{{ cocktail.strDrink }}</div>
     </div>
 </template>
 
@@ -41,12 +41,27 @@ const props = defineProps({
 }
 
 .name {
+    position: relative;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-top: 15px;
     letter-spacing: .1em;
-}
 
+    &:hover::after {
+        content: attr(title);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: #333;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        z-index: 1;
+        white-space: normal;
+        width: max-content;
+        max-width: 300px;
+    }
+}
 </style>

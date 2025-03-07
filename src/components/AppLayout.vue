@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ROUTES_PATHS } from '@/constants';
+import bgImage from '@/assets/img/bg-1.jpg';
 
 import {
     Back
@@ -28,9 +29,9 @@ const routeName = computed(() => route.name);
 function goForCocktailRandom() {
     router.push(ROUTES_PATHS.COCKTAIL_RANDOM);
 
-    if(routeName.value === ROUTES_PATHS.COCKTAIL_RANDOM) {
-        router.go();
-    }
+    // if(routeName.value === ROUTES_PATHS.COCKTAIL_RANDOM) {
+    //     router.go();
+    // }
 }
 
 function goBack() {
